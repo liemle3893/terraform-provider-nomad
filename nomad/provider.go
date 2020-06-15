@@ -65,12 +65,13 @@ func Provider() terraform.ResourceProvider {
 		ConfigureFunc: providerConfigure,
 
 		DataSourcesMap: map[string]*schema.Resource{
-			"nomad_acl_policy":  dataSourceAclPolicy(),
-			"nomad_acl_token":   dataSourceACLToken(),
-			"nomad_deployments": dataSourceDeployments(),
-			"nomad_job":         dataSourceJob(),
-			"nomad_namespaces":  dataSourceNamespaces(),
-			"nomad_regions":     dataSourceRegions(),
+			"nomad_acl_policy":   dataSourceAclPolicy(),
+			"nomad_acl_policies": dataSourceAclPolicies(),
+			"nomad_acl_token":    dataSourceACLToken(),
+			"nomad_deployments":  dataSourceDeployments(),
+			"nomad_job":          dataSourceJob(),
+			"nomad_namespaces":   dataSourceNamespaces(),
+			"nomad_regions":      dataSourceRegions(),
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
