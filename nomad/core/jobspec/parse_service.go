@@ -7,8 +7,8 @@ import (
 	"github.com/hashicorp/hcl"
 	"github.com/hashicorp/hcl/hcl/ast"
 	"github.com/hashicorp/nomad/api"
+	"github.com/hashicorp/terraform-provider-nomad/nomad/core/helper"
 	"github.com/mitchellh/mapstructure"
-	"github.com/terraform-providers/terraform-provider-nomad/nomad/core/helper"
 )
 
 func parseGroupServices(g *api.TaskGroup, serviceObjs *ast.ObjectList) error {
@@ -519,6 +519,8 @@ func parseChecks(service *api.Service, checkObjs *ast.ObjectList) error {
 			"grpc_service",
 			"grpc_use_tls",
 			"task",
+			"success_before_passing",
+			"failures_before_critical",
 		}
 		if err := helper.CheckHCLKeys(co.Val, valid); err != nil {
 			return multierror.Prefix(err, "check ->")
